@@ -1,0 +1,123 @@
+
+
+#marca {
+    height: 65px;
+}
+
+#logo{
+    margin-top: 35px;
+    margin-left: 0;
+    max-height: 40px;
+}
+
+#categoriaactual{
+    background-color: white;
+    color: #235F95;
+    border-bottom: solid 2px #235F95;
+    padding-bottom: 5px;
+}
+
+#separador-navbar {
+    height: 15px;
+}
+
+.titulo {
+    color: #777;
+}
+
+.muestra{
+    margin: 5px;
+}
+
+#similares{
+    margin-top: 60px;
+}
+
+.productos{
+    margin-top: 40px;
+    padding: 0 50px;
+}
+
+.texto-producto{
+    margin-top: 5px;
+}
+
+.nombre-producto{
+    font-size: 18px;
+    text-align: center;
+    color: #777;
+}
+
+.nombre-hover{
+    color: black;
+}
+
+.foto-producto {
+    background-color: black;
+}
+
+.detalle {
+    margin-bottom: 40px;
+}
+
+#cotiza {
+    margin-top: 40px;
+}
+
+#fila-fotos{
+    margin: 15px 0;
+    padding: 10px 5px;
+    background-color: #f1f1f1;
+}
+
+.thumb {
+    cursor: pointer;
+}
+
+.thumb-activa {
+    outline: solid 5px #235F95;
+}
+
+.foto-principal {
+    display: none;
+}
+
+.activa {
+    display: inline;
+}
+
+
+.contacto {
+    background-color: #f2f2f2;
+}
+
+.datos {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#datos {
+    max-width: 450px;
+    border: solid #777 3px;
+    border-radius: 10px;
+    margin: 20px auto;
+}
+
+
+strong {
+    font-size: 18px;
+}
+
+#distribuidor {
+    max-width: 300px;
+    margin: 35px auto;
+}
+
+footer{
+    margin-top: 10px;
+    text-align: center;
+}
+
+#pie {
+    margin-top: 150px;
+}

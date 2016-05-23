@@ -1,0 +1,23 @@
+a:-webkit-any-link{
+    text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6,p, li, strong, abbr {
+    font-family: 'Titillium Web', sans-serif;
+}
+.titulo-link{
+    font-family: 'Titillium Web', sans-serif ;
+    color: #777;
+}
+
+.titulo-link:visited{
+
+}
+.titulo-link:hover{
+    color: #235F95;
+    text-decoration: none;
+}
+
+.nombre-producto{
+    font-family: 'Titillium Web', sans-serif ;
+
+}

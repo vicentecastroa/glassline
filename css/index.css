@@ -1,0 +1,113 @@
+
+
+#marca {
+    height: 130px;
+}
+
+#logo{
+    margin-top: 70px;
+    margin-left: 0;
+}
+
+#separador-navbar {
+    height: 15px;
+}
+
+.img-banner {
+    margin: 0 0;
+}
+
+.carousel {
+    max-height: 500px;
+}
+
+.carousel-indicators li {
+    background-color: white;
+    border: none;
+}
+
+.carousel-indicators .active {
+    background-color: transparent;
+    border: solid white 1px;
+}
+
+#separador-productos{
+    height: 40px;
+}
+
+.muestra {
+    padding: 5px;
+}
+
+.productos {
+    margin-top: 20px;
+}
+
+#titulo-productos{
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+.nombre-producto {
+    font-size: 18px;
+    text-align: center;
+    color: #777;
+}
+
+.descripcion-producto {
+    font-size: 14px;
+    text-align: center;
+    color: #777;
+
+}
+
+.link-hover {
+    color: black;
+}
+
+.productomargen {
+    margin-top: 60px;
+}
+
+.descripcion {
+    display: none;
+}
+
+#seccion-productos{
+    margin-bottom: 150px;
+}
+
+.contacto {
+    background-color: #f2f2f2;
+}
+
+.datos {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#datos {
+    max-width: 450px;
+    border: solid #777 3px;
+    border-radius: 10px;
+    margin: 20px auto;
+}
+
+address {
+    text-align: center;
+    font-size: 16px;
+}
+
+strong {
+    font-size: 18px;
+}
+
+#distribuidor {
+    max-width: 300px;
+    margin: 35px auto;
+}
+
+footer{
+    margin-top: 10px;
+    text-align: center;
+}
