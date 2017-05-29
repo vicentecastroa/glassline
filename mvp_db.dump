@@ -1,0 +1,500 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.5.6
+-- Dumped by pg_dump version 9.5.6
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: Places_Tours; Type: TABLE; Schema: public; Owner: chinocumbia
+--
+
+CREATE TABLE "Places_Tours" (
+    place_id integer NOT NULL,
+    tour_id integer NOT NULL
+);
+
+
+ALTER TABLE "Places_Tours" OWNER TO chinocumbia;
+
+--
+-- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: chinocumbia
+--
+
+CREATE TABLE ar_internal_metadata (
+    key character varying NOT NULL,
+    value character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE ar_internal_metadata OWNER TO chinocumbia;
+
+--
+-- Name: contacts; Type: TABLE; Schema: public; Owner: chinocumbia
+--
+
+CREATE TABLE contacts (
+    id integer NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE contacts OWNER TO chinocumbia;
+
+--
+-- Name: contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: chinocumbia
+--
+
+CREATE SEQUENCE contacts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE contacts_id_seq OWNER TO chinocumbia;
+
+--
+-- Name: contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: chinocumbia
+--
+
+ALTER SEQUENCE contacts_id_seq OWNED BY contacts.id;
+
+
+--
+-- Name: employees; Type: TABLE; Schema: public; Owner: chinocumbia
+--
+
+CREATE TABLE employees (
+    id integer NOT NULL,
+    name character varying,
+    "position" character varying,
+    email character varying,
+    phone character varying,
+    img_url character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    last_name character varying,
+    order_index integer
+);
+
+
+ALTER TABLE employees OWNER TO chinocumbia;
+
+--
+-- Name: employees_id_seq; Type: SEQUENCE; Schema: public; Owner: chinocumbia
+--
+
+CREATE SEQUENCE employees_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE employees_id_seq OWNER TO chinocumbia;
+
+--
+-- Name: employees_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: chinocumbia
+--
+
+ALTER SEQUENCE employees_id_seq OWNED BY employees.id;
+
+
+--
+-- Name: places; Type: TABLE; Schema: public; Owner: chinocumbia
+--
+
+CREATE TABLE places (
+    id integer NOT NULL,
+    name character varying,
+    description character varying,
+    image_url character varying,
+    audio_url character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE places OWNER TO chinocumbia;
+
+--
+-- Name: places_id_seq; Type: SEQUENCE; Schema: public; Owner: chinocumbia
+--
+
+CREATE SEQUENCE places_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE places_id_seq OWNER TO chinocumbia;
+
+--
+-- Name: places_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: chinocumbia
+--
+
+ALTER SEQUENCE places_id_seq OWNED BY places.id;
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: chinocumbia
+--
+
+CREATE TABLE schema_migrations (
+    version character varying NOT NULL
+);
+
+
+ALTER TABLE schema_migrations OWNER TO chinocumbia;
+
+--
+-- Name: subscribers; Type: TABLE; Schema: public; Owner: chinocumbia
+--
+
+CREATE TABLE subscribers (
+    id integer NOT NULL,
+    name character varying,
+    email character varying,
+    reason character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE subscribers OWNER TO chinocumbia;
+
+--
+-- Name: subscribers_id_seq; Type: SEQUENCE; Schema: public; Owner: chinocumbia
+--
+
+CREATE SEQUENCE subscribers_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE subscribers_id_seq OWNER TO chinocumbia;
+
+--
+-- Name: subscribers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: chinocumbia
+--
+
+ALTER SEQUENCE subscribers_id_seq OWNED BY subscribers.id;
+
+
+--
+-- Name: tours; Type: TABLE; Schema: public; Owner: chinocumbia
+--
+
+CREATE TABLE tours (
+    id integer NOT NULL,
+    name character varying,
+    description character varying,
+    image_url character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE tours OWNER TO chinocumbia;
+
+--
+-- Name: tours_id_seq; Type: SEQUENCE; Schema: public; Owner: chinocumbia
+--
+
+CREATE SEQUENCE tours_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE tours_id_seq OWNER TO chinocumbia;
+
+--
+-- Name: tours_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: chinocumbia
+--
+
+ALTER SEQUENCE tours_id_seq OWNED BY tours.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: chinocumbia
+--
+
+ALTER TABLE ONLY contacts ALTER COLUMN id SET DEFAULT nextval('contacts_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: chinocumbia
+--
+
+ALTER TABLE ONLY employees ALTER COLUMN id SET DEFAULT nextval('employees_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: chinocumbia
+--
+
+ALTER TABLE ONLY places ALTER COLUMN id SET DEFAULT nextval('places_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: chinocumbia
+--
+
+ALTER TABLE ONLY subscribers ALTER COLUMN id SET DEFAULT nextval('subscribers_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: chinocumbia
+--
+
+ALTER TABLE ONLY tours ALTER COLUMN id SET DEFAULT nextval('tours_id_seq'::regclass);
+
+
+--
+-- Data for Name: Places_Tours; Type: TABLE DATA; Schema: public; Owner: chinocumbia
+--
+
+COPY "Places_Tours" (place_id, tour_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: chinocumbia
+--
+
+COPY ar_internal_metadata (key, value, created_at, updated_at) FROM stdin;
+environment	development	2017-05-09 15:58:56.002253	2017-05-09 15:58:56.002253
+\.
+
+
+--
+-- Data for Name: contacts; Type: TABLE DATA; Schema: public; Owner: chinocumbia
+--
+
+COPY contacts (id, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Name: contacts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: chinocumbia
+--
+
+SELECT pg_catalog.setval('contacts_id_seq', 1, false);
+
+
+--
+-- Data for Name: employees; Type: TABLE DATA; Schema: public; Owner: chinocumbia
+--
+
+COPY employees (id, name, "position", email, phone, img_url, created_at, updated_at, last_name, order_index) FROM stdin;
+1	Ligia	Socia	ligia.parisi@dlpq.cl		ligia.jpg	2017-05-09 16:03:36.727233	2017-05-09 16:03:36.727233	Parisi Bagolini	\N
+2	Doris 	Administración	doris.romero@dlpq.cl		doris.jpg	2017-05-09 16:04:14.521558	2017-05-09 16:04:14.521558	Romero	\N
+3	Alvaro 	Socio	aqp@dlpq.cl		quintanillaponce.jpg	2017-05-09 16:04:40.355274	2017-05-09 16:04:40.355274	Quintanilla Ponce	\N
+5	Alvaro 	Socio	aquintanilla@dlpq.cl		quintanilla.jpg	2017-05-09 16:06:18.171669	2017-05-09 16:06:18.171669	Quintanilla Pérez	\N
+6	Ana María 	Socia	ana.monsalve@dlpq.cl		monsalve.jpg	2017-05-09 16:06:52.74227	2017-05-09 16:06:52.74227	Monsalve 	\N
+4	Rodrigo	Socio	rdelabarra@dlpq.cl		rodrigo.jpg	2017-05-09 16:05:55.32358	2017-05-09 16:07:11.698586	De la Barra	\N
+7	Francesca 	Socia	francesca.sanguino@dlpq.cl		francesca.jpg	2017-05-09 16:07:41.465223	2017-05-09 16:07:41.465223	Sanguino	\N
+8	Iván	Socio	ivan.levi@dlpq.cl		levi.jpg	2017-05-09 16:08:07.950505	2017-05-09 16:08:07.950505	Levi	\N
+9	Juan José 	Abogado	jjpiriz@dlpq.cl		piriz.jpg	2017-05-09 16:08:30.238079	2017-05-09 16:08:30.238079	Píriz	\N
+\.
+
+
+--
+-- Name: employees_id_seq; Type: SEQUENCE SET; Schema: public; Owner: chinocumbia
+--
+
+SELECT pg_catalog.setval('employees_id_seq', 9, true);
+
+
+--
+-- Data for Name: places; Type: TABLE DATA; Schema: public; Owner: chinocumbia
+--
+
+COPY places (id, name, description, image_url, audio_url, created_at, updated_at) FROM stdin;
+2	Ex Congreso		ex_congreso.jpg	long/ex_congreso.mp3	2017-05-28 21:47:25.583891	2017-05-28 21:47:25.583891
+8	Barrio Lastarria		places/barrio_lastarria.jpg	long/barrio_lastarria.mp3	2017-05-28 21:59:30.951799	2017-05-28 21:59:30.951799
+9	Correo Central		places/correo_central.jpg	long/correo_central.mp3	2017-05-28 22:00:08.615598	2017-05-28 22:00:08.615598
+10	Estación Mapocho		places/estacion_mapocho.jpg	long/estacion_mapocho.mp3	2017-05-28 22:00:42.492524	2017-05-28 22:00:42.492524
+11	La Moneda		places/la_moneda.jpg	long/la_moneda.mp3	2017-05-28 22:01:12.026691	2017-05-28 22:01:12.026691
+12	La Piojera		places/la_piojera.jpg	long/la_piojera.mp3	2017-05-28 22:01:33.995231	2017-05-28 22:01:33.995231
+13	Mercado Central		places/mercado_central.jpg	long/mercado_central.mp3	2017-05-28 22:04:55.343039	2017-05-28 22:04:55.343039
+14	Metro Moneda		places/metro_moneda.jpg	long/metro_moneda.mp3	2017-05-28 22:05:25.16104	2017-05-28 22:05:25.16104
+15	Municipalidad de Santiago		places/municipalidad.jpg	long/municipalidad.mp3	2017-05-28 22:05:55.086208	2017-05-28 22:05:55.086208
+16	Museo de Historia Nacional		places/museo_historia_nacional.jpg	long/museo_historia_nacional.mp3	2017-05-28 22:07:00.198961	2017-05-28 22:07:00.198961
+17	Museo Precolombino		places/museo_precolombino.jpg	long/museo_precolombino.mp3	2017-05-28 22:07:30.158944	2017-05-28 22:07:30.158944
+18	Plaza de Armas		places/plaza_de_armas.jpg	long/plaza_armas.mp3	2017-05-28 22:13:14.090352	2017-05-28 22:13:14.090352
+19	Plaza de la Constitución		places/plaza_constitucion.jpg	long/plaza_constitucion.mp3	2017-05-28 22:13:44.413832	2017-05-28 22:13:44.413832
+20	Puente Cal y Canto		places/puente_cal_canto.jpg	long/puente_cal_canto.mp3	2017-05-28 22:14:17.488479	2017-05-28 22:14:17.488479
+3	Barrio Bellavista		places/bellavista.jpg	long/Bellavista.mp3	2017-05-28 21:51:22.619056	2017-05-28 22:28:27.52409
+7	Catedral de Santiago		places/catedral_metropolitana_santiago.jpg	long/Catedral.mp3	2017-05-28 21:58:28.412777	2017-05-28 22:31:39.941957
+\.
+
+
+--
+-- Name: places_id_seq; Type: SEQUENCE SET; Schema: public; Owner: chinocumbia
+--
+
+SELECT pg_catalog.setval('places_id_seq', 20, true);
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: chinocumbia
+--
+
+COPY schema_migrations (version) FROM stdin;
+20170430210755
+20170430233713
+20170507000214
+20170510002042
+20170510002435
+20170510002722
+20170501165134
+20170527211657
+20170527211806
+20170529002057
+\.
+
+
+--
+-- Data for Name: subscribers; Type: TABLE DATA; Schema: public; Owner: chinocumbia
+--
+
+COPY subscribers (id, name, email, reason, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Name: subscribers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: chinocumbia
+--
+
+SELECT pg_catalog.setval('subscribers_id_seq', 1, false);
+
+
+--
+-- Data for Name: tours; Type: TABLE DATA; Schema: public; Owner: chinocumbia
+--
+
+COPY tours (id, name, description, image_url, created_at, updated_at) FROM stdin;
+1	Santiago Highlights	Santiago's most iconic places. Ideal if you are staying for one or two days.	tours/santiago_highlights.jpg	2017-05-28 23:44:02.846539	2017-05-28 23:51:37.303212
+\.
+
+
+--
+-- Name: tours_id_seq; Type: SEQUENCE SET; Schema: public; Owner: chinocumbia
+--
+
+SELECT pg_catalog.setval('tours_id_seq', 1, true);
+
+
+--
+-- Name: ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: chinocumbia
+--
+
+ALTER TABLE ONLY ar_internal_metadata
+    ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: chinocumbia
+--
+
+ALTER TABLE ONLY contacts
+    ADD CONSTRAINT contacts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: employees_pkey; Type: CONSTRAINT; Schema: public; Owner: chinocumbia
+--
+
+ALTER TABLE ONLY employees
+    ADD CONSTRAINT employees_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: places_pkey; Type: CONSTRAINT; Schema: public; Owner: chinocumbia
+--
+
+ALTER TABLE ONLY places
+    ADD CONSTRAINT places_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: chinocumbia
+--
+
+ALTER TABLE ONLY schema_migrations
+    ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
+
+
+--
+-- Name: subscribers_pkey; Type: CONSTRAINT; Schema: public; Owner: chinocumbia
+--
+
+ALTER TABLE ONLY subscribers
+    ADD CONSTRAINT subscribers_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tours_pkey; Type: CONSTRAINT; Schema: public; Owner: chinocumbia
+--
+
+ALTER TABLE ONLY tours
+    ADD CONSTRAINT tours_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
